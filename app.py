@@ -5,15 +5,15 @@ import stripe
 import json
 import os  # For env var
 
-# New: Configure Gemini with secret key
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+# Set Gemini key from secret
+os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
 
-# New: Set Stripe with secrets
+# Set Stripe from secrets
 stripe.api_key = st.secrets["STRIPE_SECRET_KEY"]
-STRIPE_PUBLISHABLE_KEY = st.secrets["STRIPE_PUBLISHABLE_KEY"]  # Optional: Can hardcode if you want
-STRIPE_PRICE_ID = st.secrets["STRIPE_PRICE_ID"]  # Optional: Can hardcode if you want
+STRIPE_PUBLISHABLE_KEY = st.secrets["STRIPE_PUBLISHABLE_KEY"]  # Optional
+STRIPE_PRICE_ID = st.secrets["STRIPE_PRICE_ID"]  # Optional
 
-client = genai.Client()  # New: Create client (uses env API key)
+client = genai.Client()  # Uses env var now
 
 stripe.api_key = STRIPE_SECRET_KEY
 
@@ -100,4 +100,5 @@ st.subheader("Demo Example")
 st.write("Roast: 'This resume looks like it was written by a robot who hates jobs. No achievements, just duties – you're basically saying you're average at everything.'")
 
 st.write("Fix (Paid): 1. Add quantifiable achievements. 2. Tailor to job keywords. 3. Shorten to 1 page.")
+
 
