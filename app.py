@@ -81,8 +81,8 @@ if st.button("Roast My Resume"):
                     'quantity': 1,
                 }],
                 mode='payment',
-                success_url="http://localhost:8501?session_id={CHECKOUT_SESSION_ID}",  # For local testing; replace with https://your-streamlit-app-url.streamlit.app once deployed
-                cancel_url="http://localhost:8501",  # Same as above
+                success_url="https://ai-resume-roaster-drbrsy5qtpk4ks62vcxmnb.streamlit.app/",  # For local testing; replace with https://your-streamlit-app-url.streamlit.app once deployed
+                cancel_url="https://ai-resume-roaster-drbrsy5qtpk4ks62vcxmnb.streamlit.app/",  # Same as above
             )
             st.markdown(f'<a href="{session.url}" target="_blank"><button>Pay $5 Now</button></a>', unsafe_allow_html=True)
 
@@ -98,4 +98,5 @@ if st.button("Roast My Resume"):
 # Demo Example on Home
 st.subheader("Demo Example")
 st.write("Roast: 'This resume looks like it was written by a robot who hates jobs. No achievements, just duties – you're basically saying you're average at everything.'")
+
 st.write("Fix (Paid): 1. Add quantifiable achievements. 2. Tailor to job keywords. 3. Shorten to 1 page.")
